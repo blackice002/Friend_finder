@@ -8,7 +8,7 @@ module.exports = function(app) {
         res.json(friendData);
     });
 
-    // POST route for /api/friends takes in the new data and responds with the most compatible match.
+// POST route for /api/friends takes in the new data and responds with the most compatible match.
     app.post('/api/friends', function(req, res) {
         // Our user is the data sent in the request.
         var thisUser = req.body;
@@ -44,9 +44,8 @@ module.exports = function(app) {
                 }
             }
 
-            // Then send bestMatches to the client.
             res.json(bestMatches);
-        // If there is only one friend to compare to, skip all that work and just send back that friend.
+
         } else {
             res.json(friendData);
         }

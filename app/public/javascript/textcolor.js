@@ -1,7 +1,5 @@
-/**
- * Random colored text
- * <rabbitfighter@cryptolab.net>
- */
+
+//  * Random colored text
 
 //Get arrays of the text
 let letters = document.querySelector('#txt').innerHTML.split('');

@@ -10,14 +10,17 @@ body {
     color: aliceblue;
   }
 
+  /* background color for survey page */
  #surveyBack{
      background-color: rgb(6, 34, 45);
  } 
+ /* background image for home page */
 #backgroundColor{
     background-image:url('../img/friendsW.jpg');
     width:100%;
 
 }
+/* friend icon settting */
 .logo{
     max-height: 80px;
     max-width: 80px;
@@ -70,6 +73,3 @@ border-radius: 15px;
 .container{
     margin:10px;
 }
-/* .topText{
-    margin-top:150px;
-} */
