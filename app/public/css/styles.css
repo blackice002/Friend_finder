@@ -1,0 +1,75 @@
+/* Minor adjustments for visual consistency. */
+/* .row {
+    padding: 20px;
+} */
+
+body {
+    margin: 10px;
+    font-family: 'Oswald';
+    font-size: 14px;
+    color: aliceblue;
+  }
+
+ #surveyBack{
+     background-color: rgb(6, 34, 45);
+ } 
+#backgroundColor{
+    background-image:url('../img/friendsW.jpg');
+    width:100%;
+
+}
+.logo{
+    max-height: 80px;
+    max-width: 80px;
+    /* background-color: rgb(2, 70, 116); */
+    margin-top:20px;
+}
+
+#txt{
+    font-family: 'Pacifico', cursive;
+    font-size: 5em;
+    background-color: rgb(2, 70, 116);
+    border:2px solid white;
+    border-radius: 15px;
+
+}
+.intro-lead-in{
+    background-color: black;
+}
+.btnBlue{
+    background-color: rgb(2, 70, 116);
+    border:2px solid white;
+    color:white;
+}
+.insTxt{
+    font-family: 'Oxygen', sans-serif;
+    margin:10px;
+    margin-top:100px;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+}
+
+
+.row {
+    padding: 20px;
+}
+#surveyBack{
+    color:white;
+    margin-top:50px;
+    text-align: center;
+}
+.pText{
+background-color:rgb(13, 6, 60);
+text-transform: uppercase;
+margin:0;
+padding:0;
+border:1px solid gray;
+border-radius: 15px;
+
+}
+.container{
+    margin:10px;
+}
+/* .topText{
+    margin-top:150px;
+} */

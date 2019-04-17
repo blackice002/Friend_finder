@@ -1,87 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Friend Finder</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Oxygen|Pacifico" rel="stylesheet">
-  
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="javascript/survey.js"></script>
 </head>
+
 <body>
-    <body>
-        <div class="col-xs-12">
-            <div class="row">
-                <!-- Link back to homepage. -->
-                <p><a href="/">Home</a></p>
-                <h1>Friend Finder Survey Questions</h1>
-                <hr>
-                <form>
-                    <!--Basic questionnaire-->
-                    <h2>About You</h2>
-                    <div class="form-group">
-                        <label for="userName">Your Name</label>
-                        <input type="text" class="form-control" id="userName" placeholder="Your name here">
-                    </div>
-                    <div class="form-group">
-                        <label for="imageLink">Your Photo</label>
-                        <input type="url" class="form-control" id="imageLink" placeholder="http://flickr.com/image.png">
-                    </div>
-                    <hr>
-                    <!-- Questions will be inserted here. -->
-                    <h2>Personality Test</h2>
-                    <div id="questions"></div>
-                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                </form>
-                <hr>
-                <!--Links to data API and GitHub-->
-                <p>
-                    <span><a href="/api/friends">API Friend List</a> | </span>
-                    <span><a href="https://blackice002.github.io/Friend_finder">GitHub Repository</a></span>
-                </p>
-                <!-- Error Modal -->
-                <div id="errorModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog modal-lg">
-        
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Please include your name and a link to a photo of you.</h4>
-                            </div>
-                        </div>
-                    </div>
-        
+
+    <div class='page-top'>
+        <nav class="navbar navbar-dark navbar-expand-lg static-top bg-dark" id="mainNav">
+            <div class="container"><a class="navbar-brand" href="#page-top" data-bs-hover-animate="rubberBand">Friend
+                    Finder</a><button class="navbar-toggler navbar-toggler-right" data-toggle="collapse"
+                    data-target="#navbarResponsive" type="button" data-toogle="collapse"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i
+                        class="fa fa-bars"></i></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="nav navbar-nav ml-auto text-uppercase">
+                        <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="/">Home</a>
+                        </li>
+                        <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger"
+                                href="https://blackice002.github.io/Friend_finder">Github</a>
+                        </li>
+                        <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger"
+                                href="/api/friends">API
+                                Friends
+                                List&nbsp;</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger"
+                                href="/survey">survay</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <!-- Result Modal -->
-            <div id="resultModal" class="modal fade" role="dialog">
-                <div class="modal-dialog modal-lg">
-        
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Your best match!</h4>
-                        </div>
-                        <div class="modal-body" id="modalContent"></div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
+        </nav>
+    </div>
+
+    <div class="page-header">
+            <div class="clearfix">
+                <div class="col-md-12">
+                    <div class="col-md-8 col-sm-6 col-xs-12 text-center">
+                        <h1>Friend Finder Survey Questions</h1>
                     </div>
-        
                 </div>
             </div>
         </div>
-        </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-<script src="assets/js/script.min.js"></script>
-<script src="assets/js/textcolor.js"></script>
 
+    <div class="masthead" id="surveyBack">
+            <!-- Link back to homepage. -->
+           
+
+        <hr>
+        <form>
+            <!--Basic questionnaire-->
+            <h2>About You</h2>
+            <div class="form-group d-inline-block col-5">
+                <label for="userName">Your Name</label>
+                <input type="text" class="form-control" id="userName" placeholder="Your name here">
+            </div>
+            <div class="form-group d-inline-block col-5">
+                <label for="imageLink">Your Photo</label>
+                <input type="url" class="form-control" id="imageLink" placeholder="http://flickr.com/image.png">
+            </div>
+            <hr>
+            <!-- Questions will be inserted here. -->
+            <div class="container">
+                <h2 class="pText">Personality Test</h2>
+                <div class="col-6 d-inline-block" id="questions"></div>
+                <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+            </div>
+        </form>
+        <hr>
+        <!-- Error Modal -->
+        <div id="errorModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Please include your name and a link to a photo of you.</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Result Modal -->
+        <div id="resultModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Your best match!</h4>
+                    </div>
+                    <div class="modal-body" id="modalContent"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
-s
